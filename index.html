@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Arte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<header class="site-header">
+
+    <div class="container header-content">
+
+        <a class="logo" href="#" aria-label="VOLT">
+            <span> FRETE GRATIS ACIMA DE 199 </span>
+            <strong>VOLT</strong>
+        </a>
+
+        <!-- Menu mobile -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false">
+        </button>
+<body>
+
+    <header>
+        <h1>VOLT</h1>
+    
+        <!-- NAVEGAÇÃO -->
+     <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+
+        <a href="#Todos">Início</a>
+
+        <a href="#Audio">Destaque</a>
+
+        <a href="#Acessorios">Notícias</a>
+
+        <a href="#Casa">Sobre</a>
+
+        <a href="#Vestivel">Sobre</a>
+
+    </nav>
+    </header>
+
+    <main>
+
+        <section id="Todos">
+            <h2>Todos</h2>
+
+            <div class="carousel">
+                <button id="anterior">❮</button>
+
+                <div id="slide"></div>
+
+                <button id="proximo">❯</button>
+            </div>
+        </section>
+
+        <section
+        class="tools-section container"
+        aria-labelledby="titulo-ferramentas">
+
+        <div>
+
+            <p class="eyebrow">
+                EXPLORE
+            </p>
+
+            <h2 id="titulo-ferramentas">
+                Encontre uma notícia
+            </h2>
+
+        </div>
+
+
+        <div class="tools">
+
+            <!-- Campo de busca -->
+            <label class="search-box">
+
+                <span class="sr-only">
+                    Buscar
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Buscar pelo título..."
+                    autocomplete="off">
+
+                <span aria-hidden="true">
+                    ⌕
+                </span>
+
+            </label>
+
+
+            <!-- Filtro -->
+            <label
+                class="sr-only"
+                for="categoryFilter">
+
+                Filtrar por categoria
+
+            </label>
+
+            <select id="categoryFilter">
+
+                <option value="Todas">
+                    Todas as categorias
+                </option>
+
+                <option value="#Audio">
+                    Audio
+                </option>
+
+                <option value="#Acessorios">
+                    Acessorios
+                </option>
+
+                <option value="Casa">
+                    Casa
+                </option>
+
+                <option value="Vestivel">
+                    Vestivel
+                </option>
+
+            </select>
+
+        </div>
+
+        <section
+        class="news-section container"
+        id="Volt"
+        aria-labelledby="Acessorios">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    ATUALIDADES
+                </p>
+
+                <h2 id="titulo-noticias">
+                    Últimas notícias
+                </h2>
+
+            </div>
+
+
+            <p
+                id="resultCount"
+                class="result-count"
+                aria-live="polite">
+
+                8 Volt
+
+            </p>
+
+        </div>
+
+        <section
+        class="hero container"
+        id="Volt"
+        aria-labelledby="titulo-volt">
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80"
+                alt="Público reunido em um show com iluminação colorida">
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <span class="category">
+                Volt
+            </span>
+
+            <h1 id="titulo-volt">
+                A cultura que ocupa espaços e transforma a cidade
+            </h1>
+
+            <p>
+                Novas iniciativas culturais aproximam música,
+                literatura, arte urbana e tecnologia de diferentes
+                públicos em São Paulo.
+            </p>
+
+            <div class="meta">
+
+                <span>Por Marina Alves</span>
+
+                <span>•</span>
+
+                <span>05/10/2026</span>
+
+            </div>
+
+            <a
+                class="primary-button"
+                href="#noticias">
+
+                Ler notícias
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    </section>
+
+        <section id="#Audio">
+            <h2>Audio</h2>
+            <div id="listaProdutos" class="produtos"></div>
+        </section>
+
+        <section id="carrinho">
+
+            <h2>🛒 Carrinho</h2>
+
+            <div id="listaCarrinho"></div>
+
+            <div class="resumo">
+                <p>
+                    Subtotal:
+                    <strong id="subtotal">R$ 0,00</strong>
+                </p>
+
+                <p>
+                    Entrega:
+                    <strong id="taxa">R$ 0,00</strong>
+                </p>
+
+                <p class="total">
+                    Total:
+                    <strong id="total">R$ 0,00</strong>
+                </p>
+            </div>
+
+            <h3>Tipo de entrega</h3>
+
+            <select id="tipoEntrega">
+                <option value="retirada">Retirada</option>
+                <option value="local">Consumo no local</option>
+            </select>
+
+            <h3>Dados do cliente</h3>
+
+            <input
+                type="text"
+                id="nomeCliente"
+                placeholder="Nome do cliente"
+            >
+
+            <button id="finalizar">
+                Finalizar pedido
+            </button>
+
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 - VOLT</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
