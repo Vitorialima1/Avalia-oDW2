@@ -4,281 +4,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor & Arte</title>
+    <meta name="description" content="Zapp: loja virtual de eletrônicos e acessórios.">
+    <title>Zapp | Loja de eletrônicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-
-<header class="site-header">
-
-    <div class="container header-content">
-
-        <a class="logo" href="#" aria-label="VOLT">
-            <span> FRETE GRATIS ACIMA DE 199 </span>
-            <strong>VOLT</strong>
-        </a>
-
-        <!-- Menu mobile -->
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false">
-        </button>
 <body>
 
-    <header>
-        <h1>VOLT</h1>
-    
-        <!-- NAVEGAÇÃO -->
-     <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
-
-        <a href="#Todos">Início</a>
-
-        <a href="#Audio">Destaque</a>
-
-        <a href="#Acessorios">Notícias</a>
-
-        <a href="#Casa">Sobre</a>
-
-        <a href="#Vestivel">Sobre</a>
-
-    </nav>
-    </header>
-
-    <main>
-
-        <section id="Todos">
-            <h2>Todos</h2>
-
-            <div class="carousel">
-                <button id="anterior">❮</button>
-
-                <div id="slide"></div>
-
-                <button id="proximo">❯</button>
-            </div>
-        </section>
-
-        <section
-        class="tools-section container"
-        aria-labelledby="titulo-ferramentas">
-
-        <div>
-
-            <p class="eyebrow">
-                EXPLORE
-            </p>
-
-            <h2 id="titulo-ferramentas">
-                Encontre uma notícia
-            </h2>
-
+    <!-- Barra superior -->
+    <div class="topbar">
+        <div class="container topbar-content">
+            <p>⚡ Frete grátis acima de R$ 199</p>
+            <p>Cupom de boas-vindas: <strong>BEMVINDO10</strong></p>
         </div>
+    </div>
 
+    <!-- Masthead -->
+    <header class="masthead">
+        <div class="container masthead-content">
 
-        <div class="tools">
-
-            <!-- Campo de busca -->
-            <label class="search-box">
-
-                <span class="sr-only">
-                    Buscar
-                </span>
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Buscar pelo título..."
-                    autocomplete="off">
-
-                <span aria-hidden="true">
-                    ⌕
-                </span>
-
-            </label>
-
-
-            <!-- Filtro -->
-            <label
-                class="sr-only"
-                for="categoryFilter">
-
-                Filtrar por categoria
-
-            </label>
-
-            <select id="categoryFilter">
-
-                <option value="Todas">
-                    Todas as categorias
-                </option>
-
-                <option value="#Audio">
-                    Audio
-                </option>
-
-                <option value="#Acessorios">
-                    Acessorios
-                </option>
-
-                <option value="Casa">
-                    Casa
-                </option>
-
-                <option value="Vestivel">
-                    Vestivel
-                </option>
-
-            </select>
-
-        </div>
-
-        <section
-        class="news-section container"
-        id="Volt"
-        aria-labelledby="Acessorios">
-
-        <div class="section-heading">
-
-            <div>
-
-                <p class="eyebrow">
-                    ATUALIDADES
-                </p>
-
-                <h2 id="titulo-noticias">
-                    Últimas notícias
-                </h2>
-
-            </div>
-
-
-            <p
-                id="resultCount"
-                class="result-count"
-                aria-live="polite">
-
-                8 Volt
-
-            </p>
-
-        </div>
-
-        <section
-        class="hero container"
-        id="Volt"
-        aria-labelledby="titulo-volt">
-
-        <div class="hero-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80"
-                alt="Público reunido em um show com iluminação colorida">
-
-        </div>
-
-
-        <div class="hero-content">
-
-            <span class="category">
-                Volt
-            </span>
-
-            <h1 id="titulo-volt">
-                A cultura que ocupa espaços e transforma a cidade
-            </h1>
-
-            <p>
-                Novas iniciativas culturais aproximam música,
-                literatura, arte urbana e tecnologia de diferentes
-                públicos em São Paulo.
-            </p>
-
-            <div class="meta">
-
-                <span>Por Marina Alves</span>
-
-                <span>•</span>
-
-                <span>05/10/2026</span>
-
-            </div>
-
-            <a
-                class="primary-button"
-                href="#noticias">
-
-                Ler notícias
-
+            <a class="logo" href="#topo" aria-label="Zapp, página inicial">
+                <span class="logo-mark" aria-hidden="true">⚡</span>
+                Zapp
             </a>
 
-        </div>
+            <nav class="main-nav" aria-label="Categorias">
+                <a href="#produtos" data-categoria="Áudio">Áudio</a>
+                <a href="#produtos" data-categoria="Acessórios">Acessórios</a>
+                <a href="#produtos" data-categoria="Casa">Casa</a>
+                <a href="#produtos" data-categoria="Vestível">Vestível</a>
+            </nav>
 
-    </section>
+            <div class="masthead-actions">
+                <label class="search-box">
+                    <span class="sr-only">Buscar produtos</span>
+                    <input type="search" id="busca" placeholder="Buscar produtos…" autocomplete="off">
+                </label>
 
+                <button type="button" class="icon-btn" id="btnTema" aria-label="Alternar tema claro/escuro">🌙</button>
 
-    </section>
-
-        <section id="#Audio">
-            <h2>Audio</h2>
-            <div id="listaProdutos" class="produtos"></div>
-        </section>
-
-        <section id="carrinho">
-
-            <h2>🛒 Carrinho</h2>
-
-            <div id="listaCarrinho"></div>
-
-            <div class="resumo">
-                <p>
-                    Subtotal:
-                    <strong id="subtotal">R$ 0,00</strong>
-                </p>
-
-                <p>
-                    Entrega:
-                    <strong id="taxa">R$ 0,00</strong>
-                </p>
-
-                <p class="total">
-                    Total:
-                    <strong id="total">R$ 0,00</strong>
-                </p>
+                <button type="button" class="icon-btn cart-btn" id="btnCarrinho" aria-label="Abrir carrinho" aria-controls="carrinho">
+                    🛒
+                    <span class="badge" id="contador">0</span>
+                </button>
             </div>
 
-            <h3>Tipo de entrega</h3>
+        </div>
+    </header>
 
-            <select id="tipoEntrega">
-                <option value="retirada">Retirada</option>
-                <option value="local">Consumo no local</option>
-            </select>
+    <main id="topo">
 
-            <h3>Dados do cliente</h3>
-
-            <input
-                type="text"
-                id="nomeCliente"
-                placeholder="Nome do cliente"
-            >
-
-            <button id="finalizar">
-                Finalizar pedido
-            </button>
-
+        <!-- Banner promocional -->
+        <section class="hero container" aria-labelledby="titulo-hero">
+            <div class="hero-content">
+                <p class="eyebrow">Semana do consumidor</p>
+                <h1 id="titulo-hero">Tecnologia que acompanha o seu ritmo</h1>
+                <p>Áudio, acessórios e gadgets selecionados com até 30% de desconto. Entrega rápida para todo o país.</p>
+                <a class="btn btn-primary" href="#produtos">Ver ofertas</a>
+            </div>
+            <div class="hero-art" aria-hidden="true">⚡</div>
         </section>
 
+        <!-- Catálogo -->
+        <section id="produtos" class="container" aria-labelledby="titulo-produtos">
+            <h2 id="titulo-produtos" class="sr-only">Produtos</h2>
+
+            <div class="toolbar">
+                <div class="filters" id="filtros" role="group" aria-label="Filtrar por categoria">
+                    <button type="button" class="chip active" data-categoria="Todos">Todos</button>
+                    <button type="button" class="chip" data-categoria="Áudio">Áudio</button>
+                    <button type="button" class="chip" data-categoria="Acessórios">Acessórios</button>
+                    <button type="button" class="chip" data-categoria="Casa">Casa</button>
+                    <button type="button" class="chip" data-categoria="Vestível">Vestível</button>
+                </div>
+
+                <div class="toolbar-right">
+                    <p id="resultado" class="result-count" aria-live="polite">12 produtos</p>
+                    <label class="sr-only" for="ordenar">Ordenar produtos</label>
+                    <select id="ordenar">
+                        <option value="relevancia">Ordenar: relevância</option>
+                        <option value="menor">Menor preço</option>
+                        <option value="maior">Maior preço</option>
+                        <option value="avaliacao">Melhor avaliação</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="grade" class="grid"></div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter container" aria-labelledby="titulo-news">
+            <h2 id="titulo-news">Ganhe 10% na primeira compra</h2>
+            <p>Assine a newsletter e receba o cupom de boas-vindas, além das ofertas da semana.</p>
+            <form id="formNews" novalidate>
+                <label class="sr-only" for="emailNews">Seu e-mail</label>
+                <input type="email" id="emailNews" placeholder="seu@email.com" required>
+                <button type="submit" class="btn btn-dark">Quero o cupom</button>
+            </form>
+            <p id="msgNews" class="form-msg" role="status"></p>
+        </section>
 
     </main>
 
-    <footer>
-        <p>© 2026 - VOLT</p>
+    <!-- Carrinho lateral -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="drawer" id="carrinho" aria-label="Carrinho de compras" aria-hidden="true">
+
+        <div class="drawer-head">
+            <h2>Seu carrinho</h2>
+            <button type="button" class="icon-btn" id="fecharCarrinho" aria-label="Fechar carrinho">✕</button>
+        </div>
+
+        <div class="drawer-body" id="listaCarrinho"></div>
+
+        <div class="drawer-foot">
+            <div class="coupon">
+                <label class="sr-only" for="cupom">Cupom de desconto</label>
+                <input type="text" id="cupom" placeholder="Cupom de desconto">
+                <button type="button" class="btn btn-dark" id="aplicarCupom">Aplicar</button>
+            </div>
+            <p id="msgCupom" class="form-msg" role="status"></p>
+
+            <dl class="summary">
+                <div><dt>Subtotal</dt><dd id="subtotal">R$ 0,00</dd></div>
+                <div><dt>Desconto</dt><dd id="desconto">R$ 0,00</dd></div>
+                <div><dt>Frete</dt><dd id="frete">R$ 0,00</dd></div>
+                <div class="total"><dt>Total</dt><dd id="total">R$ 0,00</dd></div>
+            </dl>
+
+            <button type="button" class="btn btn-primary btn-block" id="finalizar">Finalizar compra</button>
+        </div>
+
+    </aside>
+
+    <!-- Aviso rápido -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>© 2026 Zapp · Projeto acadêmico</p>
+            <nav aria-label="Rodapé">
+                <a href="#topo">Trocas</a>
+                <a href="#topo">Entrega</a>
+                <a href="#topo">Contato</a>
+            </nav>
+        </div>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>

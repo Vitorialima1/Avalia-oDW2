@@ -1,880 +1,388 @@
 // ================================
-// CLASSE PRODUTO
+// CATÁLOGO (array de objetos)
 // ================================
+const CORES = {
+    "Áudio": "#6D28D9",
+    "Acessórios": "#0EA5E9",
+    "Casa": "#059669",
+    "Vestível": "#DB2777"
+};
 
-class Produto {
-
-    constructor(id, nome, descricao, preco, categoria, imagem) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.categoria = categoria;
-        this.imagem = imagem;
-    }
-
-}
-
-
-const Volt = [
-
-    {
-        titulo: "A cultura que ocupa espaços e transforma a cidade",
-        categoria: "Cultura",
-        autor: "Marina Alves",
-        data: "05/10/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Público reunido em um show com iluminação colorida"
-    },
-
-
-    {
-        titulo: "Novos artistas independentes ganham espaço nos palcos",
-        categoria: "Música",
-        autor: "Lucas Mendes",
-        data: "04/10/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Pessoa cantando em um palco diante de um público"
-    },
-
-
-    {
-        titulo: "Tecnologia aproxima jovens da produção audiovisual",
-        categoria: "Tecnologia",
-        autor: "Rafaela Souza",
-        data: "03/10/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Pessoa utilizando um notebook em uma mesa"
-    },
-
-
-    {
-        titulo: "Feiras literárias fortalecem novos autores brasileiros",
-        categoria: "Literatura",
-        autor: "João Oliveira",
-        data: "02/10/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Estantes cheias de livros em uma biblioteca"
-    },
-
-
-    {
-        titulo: "Cinema nacional recebe novas produções independentes",
-        categoria: "Cinema",
-        autor: "Camila Santos",
-        data: "01/10/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Sala de cinema com tela iluminada"
-    },
-
-
-    {
-        titulo: "Arte urbana transforma muros em galerias a céu aberto",
-        categoria: "Cultura",
-        autor: "Pedro Lima",
-        data: "30/09/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Mural colorido de arte urbana em uma parede"
-    },
-
-
-    {
-        titulo: "Bibliotecas comunitárias criam novos pontos de encontro",
-        categoria: "Cidade",
-        autor: "Ana Costa",
-        data: "29/09/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Pessoa lendo um livro em uma biblioteca"
-    },
-
-
-    {
-        titulo: "Criadores digitais reinventam formas de contar histórias",
-        categoria: "Tecnologia",
-        autor: "Diego Martins",
-        data: "28/09/2026",
-
-        imagem:
-            "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=900&q=80",
-
-        alt:
-            "Pessoa trabalhando em um computador para produção digital"
-    }
-
+const produtos = [
+    { id: 1,  nome: "Fone Bluetooth Aura",       categoria: "Áudio",      preco: 299.90, avaliacao: 4.6 },
+    { id: 2,  nome: "Caixa de Som Portátil Pulse", categoria: "Áudio",    preco: 189.90, avaliacao: 4.4 },
+    { id: 3,  nome: "Teclado Mecânico K2",       categoria: "Acessórios", preco: 349.90, avaliacao: 4.8 },
+    { id: 4,  nome: "Mouse Sem Fio Glide",       categoria: "Acessórios", preco: 129.90, avaliacao: 4.3 },
+    { id: 5,  nome: "Smartwatch Fit Move",       categoria: "Vestível",   preco: 459.90, avaliacao: 4.5 },
+    { id: 6,  nome: "Carregador Rápido 65W",     categoria: "Acessórios", preco: 149.90, avaliacao: 4.7 },
+    { id: 7,  nome: "Luminária LED Lumen",       categoria: "Casa",       preco: 219.90, avaliacao: 4.2 },
+    { id: 8,  nome: "Webcam Full HD Clara",      categoria: "Acessórios", preco: 199.90, avaliacao: 4.1 },
+    { id: 9,  nome: "Hub USB-C 7 em 1",          categoria: "Acessórios", preco: 259.90, avaliacao: 4.6 },
+    { id: 10, nome: "Fone com Fio Studio",       categoria: "Áudio",      preco: 99.90,  avaliacao: 4.0 },
+    { id: 11, nome: "Suporte de Notebook Ergo",  categoria: "Casa",       preco: 139.90, avaliacao: 4.5 },
+    { id: 12, nome: "Pulseira Fit Band",         categoria: "Vestível",   preco: 179.90, avaliacao: 4.4 }
 ];
 
-
-// ================================
-// ITEM DO CARRINHO
-// ================================
-
-class ItemCarrinho {
-
-    constructor(produto, quantidade = 1) {
-        this.produto = produto;
-        this.quantidade = quantidade;
-    }
-
-    subtotal() {
-        return this.produto.preco * this.quantidade;
-    }
-
+// Imagem gerada em SVG (gradiente + inicial da categoria)
+function imagemProduto(produto) {
+    const cor = CORES[produto.categoria];
+    const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">` +
+        `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">` +
+        `<stop offset="0" stop-color="${cor}"/><stop offset="1" stop-color="#181A2A"/>` +
+        `</linearGradient></defs>` +
+        `<rect width="400" height="300" fill="url(#g)"/>` +
+        `<rect x="140" y="90" width="120" height="120" rx="28" fill="#fff" fill-opacity=".2"/>` +
+        `<text x="200" y="175" font-family="Arial" font-size="80" font-weight="700" ` +
+        `fill="#fff" text-anchor="middle">${produto.categoria[0]}</text></svg>`;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
 
+// ================================
+// ESTADO
+// ================================
+const CHAVE_CARRINHO = "zapp-carrinho";
+const CHAVE_TEMA = "zapp-tema";
+const FRETE_GRATIS_ACIMA = 199;
+const VALOR_FRETE = 19.90;
+const CUPONS = { BEMVINDO10: 0.10 };
+
+let carrinho = [];            // [{ id, quantidade }]
+let cupomAtivo = null;
+let categoriaAtual = "Todos";
+
+// ================================
+// ELEMENTOS
+// ================================
+const $ = (id) => document.getElementById(id);
+
+const grade = $("grade");
+const resultado = $("resultado");
+const busca = $("busca");
+const ordenar = $("ordenar");
+const listaCarrinho = $("listaCarrinho");
+const contador = $("contador");
+const drawer = $("carrinho");
+const overlay = $("overlay");
+const toastEl = $("toast");
+
+// ================================
+// UTILITÁRIOS
+// ================================
+const reais = (valor) =>
+    valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+function estrelas(nota) {
+    const cheias = Math.round(nota);
+    return "★".repeat(cheias) + "☆".repeat(5 - cheias);
+}
+
+let toastTimer;
+function toast(mensagem) {
+    toastEl.textContent = mensagem;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+}
+
+// ================================
+// CATÁLOGO: filtro, busca e ordenação
+// ================================
+function produtosVisiveis() {
+    const termo = busca.value.trim().toLowerCase();
+
+    const lista = produtos.filter((p) =>
+        (categoriaAtual === "Todos" || p.categoria === categoriaAtual) &&
+        p.nome.toLowerCase().includes(termo)
+    );
+
+    switch (ordenar.value) {
+        case "menor":     lista.sort((a, b) => a.preco - b.preco); break;
+        case "maior":     lista.sort((a, b) => b.preco - a.preco); break;
+        case "avaliacao": lista.sort((a, b) => b.avaliacao - a.avaliacao); break;
+    }
+
+    return lista;
+}
+
+function renderProdutos() {
+    const lista = produtosVisiveis();
+
+    resultado.textContent =
+        `${lista.length} produto${lista.length === 1 ? "" : "s"}`;
+
+    if (lista.length === 0) {
+        grade.innerHTML = `<p class="empty">Nenhum produto encontrado.</p>`;
+        return;
+    }
+
+    grade.innerHTML = lista.map((p) => `
+        <article class="card">
+            <img src="${imagemProduto(p)}"
+                 alt="${p.nome}, produto da categoria ${p.categoria}"
+                 loading="lazy">
+            <div class="card-body">
+                <span class="tag" style="background:${CORES[p.categoria]}">${p.categoria}</span>
+                <h3>${p.nome}</h3>
+                <p class="rating" aria-label="Avaliação ${p.avaliacao} de 5">
+                    ${estrelas(p.avaliacao)}<span>${p.avaliacao.toFixed(1)}</span>
+                </p>
+                <p class="price">${reais(p.preco)}</p>
+                <button type="button" class="btn btn-primary" data-add="${p.id}">Adicionar</button>
+            </div>
+        </article>
+    `).join("");
+}
+
+function definirCategoria(categoria) {
+    categoriaAtual = categoria;
+
+    document.querySelectorAll(".chip").forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.categoria === categoria);
+    });
+
+    renderProdutos();
+}
 
 // ================================
 // CARRINHO
 // ================================
-
-class Carrinho {
-
-    constructor() {
-        this.itens = [];
-    }
-
-    adicionar(produto) {
-
-        const item = this.itens.find(
-            item => item.produto.id === produto.id
-        );
-
-        if (item) {
-            item.quantidade++;
-        } else {
-            this.itens.push(
-                new ItemCarrinho(produto)
-            );
-        }
-    }
-
-    aumentar(id) {
-
-        const item = this.itens.find(
-            item => item.produto.id === id
-        );
-
-        if (item) {
-            item.quantidade++;
-        }
-    }
-
-    diminuir(id) {
-
-        const item = this.itens.find(
-            item => item.produto.id === id
-        );
-
-        if (!item) return;
-
-        item.quantidade--;
-
-        if (item.quantidade <= 0) {
-            this.remover(id);
-        }
-    }
-
-    remover(id) {
-
-        this.itens = this.itens.filter(
-            item => item.produto.id !== id
-        );
-    }
-
-    limpar() {
-        this.itens = [];
-    }
-
-    subtotal() {
-
-        return this.itens.reduce(
-            (total, item) => total + item.subtotal(),
-            0
-        );
-    }
-
-    taxaEntrega(tipoEntrega) {
-
-        if (tipoEntrega === "delivery") {
-            return 2.50;
-        }
-
-        return 0;
-    }
-
-    total(tipoEntrega) {
-
-        return this.subtotal() +
-            this.taxaEntrega(tipoEntrega);
-    }
-
+function salvarCarrinho() {
+    try {
+        localStorage.setItem(CHAVE_CARRINHO, JSON.stringify({ carrinho, cupomAtivo }));
+    } catch (e) { /* localStorage indisponível */ }
 }
 
-
-// ================================
-// PEDIDO
-// ================================
-
-class Pedido {
-
-    constructor(cliente, itens, tipoEntrega, total) {
-
-        this.cliente = cliente;
-        this.itens = itens;
-        this.tipoEntrega = tipoEntrega;
-        this.total = total;
-        this.status = "Recebido";
-        this.data = new Date();
-
-    }
-
+function carregarCarrinho() {
+    try {
+        const dados = JSON.parse(localStorage.getItem(CHAVE_CARRINHO));
+        if (dados && Array.isArray(dados.carrinho)) {
+            carrinho = dados.carrinho.filter((i) => produtos.some((p) => p.id === i.id));
+            cupomAtivo = dados.cupomAtivo in CUPONS ? dados.cupomAtivo : null;
+        }
+    } catch (e) { /* dados inválidos */ }
 }
 
+function adicionar(id) {
+    const item = carrinho.find((i) => i.id === id);
 
-// ================================
-// GERENCIADOR
-// ================================
+    if (item) item.quantidade++;
+    else carrinho.push({ id, quantidade: 1 });
 
-class Gerenciador {
-
-    constructor() {
-        this.produtos = [];
-        this.pedidos = [];
-    }
-
-    // CREATE
-
-    adicionarProduto(produto) {
-        this.produtos.push(produto);
-    }
-
-    // READ
-
-    listarProdutos() {
-        return this.produtos;
-    }
-
-    // UPDATE
-
-    editarProduto(id, dados) {
-
-        const produto = this.produtos.find(
-            produto => produto.id === id
-        );
-
-        if (!produto) return;
-
-        produto.nome = dados.nome;
-        produto.descricao = dados.descricao;
-        produto.preco = dados.preco;
-        produto.categoria = dados.categoria;
-        produto.imagem = dados.imagem;
-    }
-
-    // DELETE
-
-    excluirProduto(id) {
-
-        this.produtos = this.produtos.filter(
-            produto => produto.id !== id
-        );
-    }
-
-    adicionarPedido(pedido) {
-        this.pedidos.push(pedido);
-    }
-
-}
-
-
-// ================================
-// OBJETOS PRINCIPAIS
-// ================================
-
-const gerenciador = new Gerenciador();
-
-const carrinho = new Carrinho();
-
-
-// ================================
-// PRODUTOS INICIAIS
-// ================================
-
-gerenciador.adicionarProduto(
-    new Produto(
-        1,
-        "Audio",
-        "Fone de ouvido",
-        25,
-        "Lanches",
-        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
-    )
-);
-
-gerenciador.adicionarProduto(
-    new Produto(
-        2,
-        "Audio",
-        "Fone de ouvido",
-        42,
-        "Pizzas",
-        "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800"
-    )
-);
-
-gerenciador.adicionarProduto(
-    new Produto(
-        3,
-        " Especial",
-        "Especial",
-        35,
-        "Massas",
-        "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800"
-    )
-);
-
-
-// ================================
-// ELEMENTOS HTML
-// ================================
-
-const listaProdutos =
-    document.getElementById("listaProdutos");
-
-const listaCarrinho =
-    document.getElementById("listaCarrinho");
-
-const subtotalElemento =
-    document.getElementById("subtotal");
-
-const taxaElemento =
-    document.getElementById("taxa");
-
-const totalElemento =
-    document.getElementById("total");
-
-const tipoEntrega =
-    document.getElementById("tipoEntrega");
-
-
-// ================================
-// READ - MOSTRAR PRODUTOS
-// ================================
-
-function mostrarProdutos() {
-
-    listaProdutos.innerHTML = "";
-
-    gerenciador.listarProdutos().forEach(produto => {
-
-        const div = document.createElement("div");
-
-        div.className = "produto";
-
-        div.innerHTML = `
-
-            <img
-                src="${produto.imagem}"
-                alt="${produto.nome}"
-            >
-
-            <h3>${produto.nome}</h3>
-
-            <p>${produto.descricao}</p>
-
-            <p>
-                Categoria: ${produto.categoria}
-            </p>
-
-            <p class="preco">
-                R$ ${produto.preco.toFixed(2)}
-            </p>
-
-            <button onclick="adicionarAoCarrinho(${produto.id})">
-                Adicionar ao carrinho
-            </button>
-
-            <button onclick="editarProduto(${produto.id})">
-                Editar
-            </button>
-
-            <button onclick="excluirProduto(${produto.id})">
-                Excluir
-            </button>
-
-        `;
-
-        listaProdutos.appendChild(div);
-
-    });
-
-}
-
-
-// ================================
-// ADICIONAR AO CARRINHO
-// ================================
-
-function adicionarAoCarrinho(id) {
-
-    const produto =
-        gerenciador.produtos.find(
-            produto => produto.id === id
-        );
-
-    if (!produto) return;
-
-    carrinho.adicionar(produto);
-
+    const produto = produtos.find((p) => p.id === id);
+    toast(`${produto.nome} adicionado ao carrinho`);
     atualizarCarrinho();
-
-    alert("Produto adicionado ao carrinho!");
-
 }
 
+function alterarQuantidade(id, delta) {
+    const item = carrinho.find((i) => i.id === id);
+    if (!item) return;
 
-// ================================
-// MOSTRAR CARRINHO
-// ================================
+    item.quantidade += delta;
+
+    if (item.quantidade <= 0) remover(id);
+    else atualizarCarrinho();
+}
+
+function remover(id) {
+    carrinho = carrinho.filter((i) => i.id !== id);
+    atualizarCarrinho();
+}
+
+function calcularTotais() {
+    const subtotal = carrinho.reduce((soma, item) => {
+        const produto = produtos.find((p) => p.id === item.id);
+        return soma + produto.preco * item.quantidade;
+    }, 0);
+
+    const desconto = cupomAtivo ? subtotal * CUPONS[cupomAtivo] : 0;
+    const base = subtotal - desconto;
+    const frete = carrinho.length === 0 || base >= FRETE_GRATIS_ACIMA ? 0 : VALOR_FRETE;
+
+    return { subtotal, desconto, frete, total: base + frete };
+}
 
 function atualizarCarrinho() {
+    // Itens
+    if (carrinho.length === 0) {
+        listaCarrinho.innerHTML = `<p class="empty-cart">Seu carrinho está vazio.</p>`;
+    } else {
+        listaCarrinho.innerHTML = carrinho.map((item) => {
+            const p = produtos.find((prod) => prod.id === item.id);
+            return `
+                <div class="cart-item">
+                    <img src="${imagemProduto(p)}" alt="${p.nome}">
+                    <div>
+                        <h3>${p.nome}</h3>
+                        <p class="unit">${reais(p.preco)} cada</p>
+                        <div class="qty">
+                            <button type="button" data-menos="${p.id}" aria-label="Diminuir quantidade de ${p.nome}">−</button>
+                            <span aria-live="polite">${item.quantidade}</span>
+                            <button type="button" data-mais="${p.id}" aria-label="Aumentar quantidade de ${p.nome}">+</button>
+                        </div>
+                    </div>
+                    <div class="side">
+                        <span>${reais(p.preco * item.quantidade)}</span>
+                        <button type="button" class="remove" data-remover="${p.id}">Remover</button>
+                    </div>
+                </div>`;
+        }).join("");
+    }
 
-    listaCarrinho.innerHTML = "";
+    // Totais
+    const t = calcularTotais();
+    $("subtotal").textContent = reais(t.subtotal);
+    $("desconto").textContent = "− " + reais(t.desconto);
+    $("frete").textContent = t.frete === 0 && carrinho.length > 0 ? "Grátis" : reais(t.frete);
+    $("total").textContent = reais(t.total);
 
-    carrinho.itens.forEach(item => {
+    // Contador do ícone
+    contador.textContent = carrinho.reduce((soma, i) => soma + i.quantidade, 0);
 
-        const div = document.createElement("div");
-
-        div.className = "item-carrinho";
-
-        div.innerHTML = `
-
-            <div>
-
-                <strong>
-                    ${item.produto.nome}
-                </strong>
-
-                <p>
-                    R$ ${item.subtotal().toFixed(2)}
-                </p>
-
-            </div>
-
-            <div class="quantidade">
-
-                <button
-                    onclick="diminuirItem(${item.produto.id})"
-                >
-                    -
-                </button>
-
-                <span>
-                    ${item.quantidade}
-                </span>
-
-                <button
-                    onclick="aumentarItem(${item.produto.id})"
-                >
-                    +
-                </button>
-
-                <button
-                    onclick="removerItem(${item.produto.id})"
-                >
-                    Remover
-                </button>
-
-            </div>
-        `;
-
-        listaCarrinho.appendChild(div);
-
-    });
-
-    atualizarTotal();
-
+    salvarCarrinho();
 }
 
+// ================================
+// DRAWER
+// ================================
+function abrirCarrinho() {
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    overlay.hidden = false;
+    $("fecharCarrinho").focus();
+}
+
+function fecharCarrinho() {
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden", "true");
+    overlay.hidden = true;
+    $("btnCarrinho").focus();
+}
 
 // ================================
-// AUMENTAR
+// CUPOM
 // ================================
+function aplicarCupom() {
+    const codigo = $("cupom").value.trim().toUpperCase();
+    const msg = $("msgCupom");
 
-function aumentarItem(id) {
-
-    carrinho.aumentar(id);
+    if (codigo in CUPONS) {
+        cupomAtivo = codigo;
+        msg.textContent = `Cupom ${codigo} aplicado: ${CUPONS[codigo] * 100}% de desconto.`;
+        msg.className = "form-msg ok";
+    } else {
+        cupomAtivo = null;
+        msg.textContent = "Cupom inválido.";
+        msg.className = "form-msg erro";
+    }
 
     atualizarCarrinho();
-
 }
 
-
 // ================================
-// DIMINUIR
+// TEMA CLARO / ESCURO
 // ================================
-
-function diminuirItem(id) {
-
-    carrinho.diminuir(id);
-
-    atualizarCarrinho();
-
+function aplicarTema(tema) {
+    document.documentElement.setAttribute("data-theme", tema);
+    $("btnTema").textContent = tema === "dark" ? "☀️" : "🌙";
 }
 
+function iniciarTema() {
+    let tema = null;
+    try { tema = localStorage.getItem(CHAVE_TEMA); } catch (e) { }
 
-// ================================
-// REMOVER
-// ================================
-
-function removerItem(id) {
-
-    const confirmar =
-        confirm("Deseja remover este item?");
-
-    if (!confirmar) return;
-
-    carrinho.remover(id);
-
-    atualizarCarrinho();
-
+    if (!tema) {
+        tema = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    aplicarTema(tema);
 }
 
-
-// ================================
-// ATUALIZAR TOTAL
-// ================================
-
-function atualizarTotal() {
-
-    const subtotal =
-        carrinho.subtotal();
-
-    const taxa =
-        carrinho.taxaEntrega(
-            tipoEntrega.value
-        );
-
-    const total =
-        carrinho.total(
-            tipoEntrega.value
-        );
-
-    subtotalElemento.textContent =
-        `R$ ${subtotal.toFixed(2)}`;
-
-    taxaElemento.textContent =
-        `R$ ${taxa.toFixed(2)}`;
-
-    totalElemento.textContent =
-        `R$ ${total.toFixed(2)}`;
-
+function alternarTema() {
+    const novo = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    aplicarTema(novo);
+    try { localStorage.setItem(CHAVE_TEMA, novo); } catch (e) { }
 }
 
-
-tipoEntrega.addEventListener(
-    "change",
-    atualizarTotal
-);
-
-
 // ================================
-// CREATE - CADASTRAR PRODUTO
+// EVENTOS
 // ================================
-
-document
-    .getElementById("formProduto")
-    .addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const novoProduto =
-            new Produto(
-
-                Date.now(),
-
-                document
-                    .getElementById("nomeProduto")
-                    .value,
-
-                document
-                    .getElementById("descricaoProduto")
-                    .value,
-
-                Number(
-                    document
-                        .getElementById("precoProduto")
-                        .value
-                ),
-
-                document
-                    .getElementById("categoriaProduto")
-                    .value,
-
-                document
-                    .getElementById("imagemProduto")
-                    .value
-            );
-
-        gerenciador.adicionarProduto(
-            novoProduto
-        );
-
-        mostrarProdutos();
-
-        this.reset();
-
-        alert("Produto cadastrado com sucesso!");
-
-    });
-
-
-// ================================
-// UPDATE - EDITAR PRODUTO
-// ================================
-
-function editarProduto(id) {
-
-    const produto =
-        gerenciador.produtos.find(
-            produto => produto.id === id
-        );
-
-    if (!produto) return;
-
-    const novoNome =
-        prompt(
-            "Digite o novo nome:",
-            produto.nome
-        );
-
-    if (!novoNome) return;
-
-    const novoPreco =
-        Number(
-            prompt(
-                "Digite o novo preço:",
-                produto.preco
-            )
-        );
-
-    gerenciador.editarProduto(
-        id,
-        {
-            nome: novoNome,
-            descricao: produto.descricao,
-            preco: novoPreco,
-            categoria: produto.categoria,
-            imagem: produto.imagem
-        }
-    );
-
-    mostrarProdutos();
-
-    alert("Produto atualizado!");
-
-}
-
-
-// ================================
-// DELETE - EXCLUIR PRODUTO
-// ================================
-
-function excluirProduto(id) {
-
-    const confirmar =
-        confirm(
-            "Tem certeza que deseja excluir este produto?"
-        );
-
-    if (!confirmar) return;
-
-    gerenciador.excluirProduto(id);
-
-    mostrarProdutos();
-
-    alert("Produto excluído!");
-
-}
-
-
-// ================================
-// FINALIZAR PEDIDO
-// ================================
-
-document
-    .getElementById("finalizar")
-    .addEventListener("click", function() {
-
-        const nome =
-            document
-                .getElementById("nomeCliente")
-                .value
-                .trim();
-
-        if (!nome) {
-
-            alert("Digite o nome do cliente.");
-
-            return;
-        }
-
-        if (carrinho.itens.length === 0) {
-
-            alert("Adicione pelo menos um produto.");
-
-            return;
-        }
-
-        const pedido =
-            new Pedido(
-
-                nome,
-
-                [...carrinho.itens],
-
-                tipoEntrega.value,
-
-                carrinho.total(
-                    tipoEntrega.value
-                )
-            );
-
-        gerenciador.adicionarPedido(
-            pedido
-        );
-
-        alert(
-            `Pedido realizado com sucesso!\n\n` +
-            `Cliente: ${pedido.cliente}\n` +
-            `Total: R$ ${pedido.total.toFixed(2)}`
-        );
-
-        carrinho.limpar();
-
-        atualizarCarrinho();
-
-    });
-
-
-// ================================
-// CARROSSEL
-// ================================
-
-let slideAtual = 0;
-
-
-function mostrarSlide() {
-
-    const produtos =
-        gerenciador.produtos;
-
-    if (produtos.length === 0) {
-
-        document.getElementById("slide").innerHTML =
-            "<p>Nenhum produto cadastrado.</p>";
-
+grade.addEventListener("click", (e) => {
+    const botao = e.target.closest("[data-add]");
+    if (botao) adicionar(Number(botao.dataset.add));
+});
+
+listaCarrinho.addEventListener("click", (e) => {
+    const mais = e.target.closest("[data-mais]");
+    const menos = e.target.closest("[data-menos]");
+    const rem = e.target.closest("[data-remover]");
+
+    if (mais) alterarQuantidade(Number(mais.dataset.mais), 1);
+    if (menos) alterarQuantidade(Number(menos.dataset.menos), -1);
+    if (rem) remover(Number(rem.dataset.remover));
+});
+
+$("filtros").addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip");
+    if (chip) definirCategoria(chip.dataset.categoria);
+});
+
+document.querySelectorAll(".main-nav a").forEach((link) => {
+    link.addEventListener("click", () => definirCategoria(link.dataset.categoria));
+});
+
+busca.addEventListener("input", renderProdutos);
+ordenar.addEventListener("change", renderProdutos);
+
+$("btnCarrinho").addEventListener("click", abrirCarrinho);
+$("fecharCarrinho").addEventListener("click", fecharCarrinho);
+overlay.addEventListener("click", fecharCarrinho);
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("open")) fecharCarrinho();
+});
+
+$("aplicarCupom").addEventListener("click", aplicarCupom);
+$("btnTema").addEventListener("click", alternarTema);
+
+$("finalizar").addEventListener("click", () => {
+    if (carrinho.length === 0) {
+        toast("Adicione pelo menos um produto.");
         return;
     }
 
-    const produto =
-        produtos[slideAtual];
+    const { total } = calcularTotais();
+    alert(`Pedido realizado com sucesso!\n\nTotal: ${reais(total)}`);
 
-    document.getElementById("slide").innerHTML = `
+    carrinho = [];
+    cupomAtivo = null;
+    $("cupom").value = "";
+    $("msgCupom").textContent = "";
+    atualizarCarrinho();
+    fecharCarrinho();
+});
 
-        <img
-            src="${produto.imagem}"
-            alt="${produto.nome}"
-        >
+// Newsletter com validação de e-mail
+$("formNews").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        <h3>${produto.nome}</h3>
+    const email = $("emailNews").value.trim();
+    const msg = $("msgNews");
+    const valido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 
-        <p>${produto.descricao}</p>
-
-        <strong>
-            R$ ${produto.preco.toFixed(2)}
-        </strong>
-
-        <br>
-
-        <button
-            onclick="adicionarAoCarrinho(${produto.id})"
-        >
-            Adicionar ao carrinho
-        </button>
-    `;
-}
-
-
-document
-    .getElementById("anterior")
-    .addEventListener("click", function() {
-
-        slideAtual--;
-
-        if (slideAtual < 0) {
-
-            slideAtual =
-                gerenciador.produtos.length - 1;
-        }
-
-        mostrarSlide();
-
-    });
-
-
-document
-    .getElementById("proximo")
-    .addEventListener("click", function() {
-
-        slideAtual++;
-
-        if (
-            slideAtual >=
-            gerenciador.produtos.length
-        ) {
-
-            slideAtual = 0;
-        }
-
-        mostrarSlide();
-
-    });
-
+    if (valido) {
+        msg.textContent = "Pronto! Use o cupom BEMVINDO10 no carrinho.";
+        msg.className = "form-msg ok";
+        e.target.reset();
+        toast("Inscrição realizada!");
+    } else {
+        msg.textContent = "Digite um e-mail válido.";
+        msg.className = "form-msg erro";
+    }
+});
 
 // ================================
 // INICIALIZAÇÃO
 // ================================
-
-mostrarProdutos();
-
-mostrarSlide();
-
+iniciarTema();
+carregarCarrinho();
+renderProdutos();
 atualizarCarrinho();
